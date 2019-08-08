@@ -17,10 +17,10 @@
     "sourceMap": true
   },
   "include": [
-    "src/@ionic-native/core/**/*.ts"
+    "src/youme-ionic/core/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "src/@ionic-native/core/**/*.spec.ts"
+    "src/youme-ionic/core/**/*.spec.ts"
   ]
 }

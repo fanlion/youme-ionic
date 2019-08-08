@@ -25,7 +25,7 @@ const PACKAGE_JSON_BASE = {
   }
 };
 
-const DIST = path.resolve(ROOT, 'dist/@ionic-native');
+const DIST = path.resolve(ROOT, 'dist/youme-ionic');
 
 const PACKAGES = [];
 
@@ -33,13 +33,13 @@ const MIN_CORE_VERSION = '^5.1.0';
 const RXJS_VERSION = '^5.5.0 || ^6.5.0';
 
 const PLUGIN_PEER_DEPENDENCIES = {
-  '@ionic-native/core': MIN_CORE_VERSION,
+  'youme-ionic/core': MIN_CORE_VERSION,
   rxjs: RXJS_VERSION
 };
 
 function getPackageJsonContent(name: string, peerDependencies = {}, dependencies = {}) {
   return merge(PACKAGE_JSON_BASE, {
-    name: '@ionic-native/' + name,
+    name: 'youme-ionic/' + name,
     dependencies,
     peerDependencies,
     version: VERSION
@@ -53,7 +53,7 @@ function writePackageJson(data: any, dir: string) {
 }
 
 function prepare() {
-  // write @ionic-native/core package.json
+  // write youme-ionic/core package.json
   writePackageJson(
     getPackageJsonContent('core', { rxjs: RXJS_VERSION }, { '@types/cordova': 'latest' }),
     path.resolve(DIST, 'core')

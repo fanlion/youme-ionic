@@ -7,12 +7,12 @@ function transformImports(file: ts.SourceFile, ctx: ts.TransformationContext, ng
     file.statements = (file.statements as any).filter((s: any) => !(s.kind === ts.SyntaxKind.ImportDeclaration && s.moduleSpecifier.text === '@angular/core'));
   }
 
-  // find the @ionic-native/core import statement
+  // find the youme-ionic/core import statement
   const importStatement = (file.statements as any).find((s: any) => {
-    return s.kind === ts.SyntaxKind.ImportDeclaration && s.moduleSpecifier.text === '@ionic-native/core';
+    return s.kind === ts.SyntaxKind.ImportDeclaration && s.moduleSpecifier.text === 'youme-ionic/core';
   });
 
-  // we're only interested in files containing @ionic-native/core import statement
+  // we're only interested in files containing youme-ionic/core import statement
   if (!importStatement) return file;
 
   const decorators: string[] = [];
