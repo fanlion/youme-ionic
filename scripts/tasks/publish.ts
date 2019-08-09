@@ -14,14 +14,14 @@ const VERSION = MAIN_PACKAGE_JSON.version;
 const FLAGS = '--access public';
 
 const PACKAGE_JSON_BASE = {
-  description: 'Ionic Native - Native plugins for ionic apps',
+  description: 'YouMe SDK Ionic Native - Native plugins for ionic apps',
   module: 'index.js',
   typings: 'index.d.ts',
-  author: 'ionic',
+  author: 'YouMe',
   license: 'MIT',
   repository: {
     type: 'git',
-    url: 'https://github.com/ionic-team/ionic-native.git'
+    url: 'https://github.com/fanlion/youme-ionic.git'
   }
 };
 

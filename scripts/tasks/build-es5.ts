@@ -33,7 +33,7 @@ const webpackConfig: webpack.Configuration = {
   target: 'web',
   output: {
     path: DIST,
-    filename: 'ionic-native.min.js'
+    filename: 'youme-ionic.min.js'
   },
   resolve: {
     modules: ['node_modules'],
@@ -72,11 +72,11 @@ function getPluginImport(entry: InjectableClassEntry) {
 function createIndexFile() {
   let fileContent = '';
   fileContent += INJECTABLE_CLASSES.map(getPluginImport).join('\n');
-  fileContent += `\nwindow.IonicNative = {\n`;
+  fileContent += `\nwindow.YoumeNative = {\n`;
   fileContent += INJECTABLE_CLASSES.map(e => e.className).join(',\n');
   fileContent += '\n};\n';
   fileContent += `require('./youme-ionic/core/bootstrap').checkReady();\n`;
-  fileContent += `require('./youme-ionic/core/ng1').initAngular1(window.IonicNative);`;
+  fileContent += `require('./youme-ionic/core/ng1').initAngular1(window.YoumeNative);`;
 
   fs.writeFileSync(INDEX_PATH, fileContent, { encoding: 'utf-8' });
 }

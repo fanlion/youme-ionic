@@ -114,11 +114,11 @@ angular.module('myApp', ['ionic.native'])
 To use Ionic Native in any other setup:
 1. Download the latest bundle from the [Github releases](https://github.com/ionic-team/ionic-native/releases) page.
 2. Include it in `index.html` before your app's code.
-3. Access any plugin using the global `IonicNative` variable.
+3. Access any plugin using the global `YoumeNative` variable.
 
 ```js
 document.addEventListener('deviceready', function() {
-  IonicNative.Camera.getPicture()
+  YoumeNative.Camera.getPicture()
     .then(
       function(data) {
         console.log('Took a picture!', data);

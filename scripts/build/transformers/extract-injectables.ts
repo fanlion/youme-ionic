@@ -19,7 +19,7 @@ export const EMIT_PATH = path.resolve(ROOT, 'injectable-classes.json');
  * an es5 bundle.
  *
  * Every injectable class will end up in the
- * window['IonicNative'] object.
+ * window['YoumeNative'] object.
  */
 export function extractInjectables() {
   return (ctx: ts.TransformationContext) => {

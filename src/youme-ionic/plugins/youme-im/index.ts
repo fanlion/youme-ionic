@@ -1,20 +1,9 @@
-/**
- * This is a template for new plugin wrappers
- *
- * TODO:
- * - Add/Change information below
- * - Document usage (importing, executing main functionality)
- * - Remove any imports that you are not using
- * - Remove all the comments included in this template, EXCEPT the @Plugin wrapper docs and any other docs you added
- * - Remove this note
- *
- */
 import { Injectable } from '@angular/core';
-import { Plugin, Cordova, CordovaProperty, CordovaInstance, InstanceProperty, IonicNativePlugin } from 'youme-ionic/core';
+import { Plugin, Cordova, IonicNativePlugin } from 'youme-ionic/core';
 import { Observable } from 'rxjs';
 
 /**
- * @name Youme I M
+ * @name Youme IM
  * @description
  * This plugin facilitates the usage of Youme IM in an Ionic apps with the integrated YoumeIMSDK
  *
