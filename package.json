@@ -1,6 +1,6 @@
 {
   "name": "youme-ionic",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Youme Native plugin wrappers for Cordova and Ionic with TypeScript, ES6+, Promise and Observable support",
   "homepage": "https://github.com/fanlion/youme-ionic.git",
   "author": "Youme Team (https://youme.im)",
@@ -20,7 +20,7 @@
     "docs-json": "ts-node -P scripts/tsconfig.json scripts/docs-json",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "postchangelog": "git commit -am \"chore(): update changelog\"",
-    "shipit": "npm run build && npm run npmpub"
+    "shipit": "npm run build && npm run readmes && npm run npmpub"
   },
   "devDependencies": {
     "@angular/common": "^7.2.15",

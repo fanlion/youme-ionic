@@ -92,7 +92,6 @@ export class YoumeIM extends IonicNativePlugin {
 
   /**
    * logout
-   * @memberof YoumeIM
    * @return {Promise<any>}
    */
   @Cordova()
@@ -113,7 +112,7 @@ export class YoumeIM extends IonicNativePlugin {
    * regist callback function for reconnect event
    * @param {Function} success - callback function for success
    * @param {Function} error - callback function for error
-   * @memberof YoumeIM
+   * @return {Promise<any>}
    */
   @Cordova({ sync: true })
   registerReconnectCallback(success: Function, error: Function): void { return; }
