@@ -99,7 +99,7 @@ export class YoumeIM extends IonicNativePlugin {
    * @memberof YoumeIM
    * @return
    */
-  @Cordova()
+  @Cordova({ sync: true })
   registerKickOffCallback(success: Function, error: Function): void { return; }
 
   /**
