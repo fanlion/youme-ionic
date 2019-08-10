@@ -72,7 +72,7 @@ export function pluginClassTransformer(
 ): ts.TransformerFactory<ts.SourceFile> {
   return (ctx: ts.TransformationContext) => {
     return tsSourceFile => {
-      if (tsSourceFile.fileName.indexOf('src/youme-ionic/plugins') > -1)
+      if (tsSourceFile.fileName.indexOf('src/@youme-ionic/plugins') > -1)
         return transformClasses(tsSourceFile, ctx, ngcBuild);
       return tsSourceFile;
     };

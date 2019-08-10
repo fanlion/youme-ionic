@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Plugin, Cordova, IonicNativePlugin } from 'youme-ionic/core';
+import { Plugin, Cordova, IonicNativePlugin } from '@youme-ionic/core';
 
 /**
  * chat type
@@ -40,7 +40,7 @@ export enum ServerZone {
  *
  * @usage
  * ```typescript
- * import { YoumeIM } from 'youme-ionic/youme-im';
+ * import { YoumeIM } from '@youme-ionic/youme-im';
  *
  *
  * constructor(private youmeIM: YoumeIM) { }

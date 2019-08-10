@@ -39,7 +39,7 @@ const webpackConfig: webpack.Configuration = {
     modules: ['node_modules'],
     extensions: ['.js'],
     alias: {
-      'youme-ionic/core': path.resolve(DIST, 'youme-ionic/core/index.js')
+      '@youme-ionic/core': path.resolve(DIST, '@youme-ionic/core/index.js')
     }
   },
   module: {
@@ -75,8 +75,8 @@ function createIndexFile() {
   fileContent += `\nwindow.YoumeNative = {\n`;
   fileContent += INJECTABLE_CLASSES.map(e => e.className).join(',\n');
   fileContent += '\n};\n';
-  fileContent += `require('./youme-ionic/core/bootstrap').checkReady();\n`;
-  fileContent += `require('./youme-ionic/core/ng1').initAngular1(window.YoumeNative);`;
+  fileContent += `require('./@youme-ionic/core/bootstrap').checkReady();\n`;
+  fileContent += `require('./@youme-ionic/core/ng1').initAngular1(window.YoumeNative);`;
 
   fs.writeFileSync(INDEX_PATH, fileContent, { encoding: 'utf-8' });
 }

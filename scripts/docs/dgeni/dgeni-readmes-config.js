@@ -52,12 +52,12 @@ module.exports = currentVersion => {
       readFilesProcessor.basePath = path.resolve(__dirname, '../../..');
 
       readTypeScriptModules.basePath = path.resolve(path.resolve(__dirname, '../../..'));
-      readTypeScriptModules.sourceFiles = ['./src/youme-ionic/plugins/**/*.ts'];
+      readTypeScriptModules.sourceFiles = ['./src/@youme-ionic/plugins/**/*.ts'];
     })
 
     // Configure file writing
     .config(function(writeFilesProcessor) {
-      writeFilesProcessor.outputFolder  = './dist/youme-ionic/';
+      writeFilesProcessor.outputFolder  = './dist/@youme-ionic/';
     })
 
     // Configure rendering

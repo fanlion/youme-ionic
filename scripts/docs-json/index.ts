@@ -18,7 +18,7 @@ interface Plugin {
 
 const rootDir = resolve(__dirname, '../..');
 const typedocTmp = resolve(__dirname, 'typedoc.tmp.json');
-const pluginsDir = resolve(rootDir, 'src/youme-ionic/plugins');
+const pluginsDir = resolve(rootDir, 'src/@youme-ionic/plugins');
 const typedoc = new Application({
   mode: 'modules',
   tsconfig: resolve(rootDir, 'tsconfig.json'),
@@ -46,7 +46,7 @@ async function generateTypedoc(root: string, outputPath = typedocTmp) {
 function processPlugin(pluginModule): Plugin {
   const pluginClass = pluginModule.children.find(isPlugin);
   const decorator = getPluginDecorator(pluginClass);
-  const packageName = `youme-ionic/${basename(dirname(pluginModule.originalName))}`;
+  const packageName = `@youme-ionic/${basename(dirname(pluginModule.originalName))}`;
   const displayName = getTag(pluginClass, 'name');
   const usage = getTag(pluginClass, 'usage');
   const description = getTag(pluginClass, 'description');

@@ -1,4 +1,4 @@
-[![Circle CI](https://circleci.com/gh/ionic-team/ionic-native.svg?style=shield)](https://circleci.com/gh/ionic-team/ionic-native) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) ![](https://img.shields.io/npm/v/youme-ionic/core.svg)
+[![Circle CI](https://circleci.com/gh/ionic-team/ionic-native.svg?style=shield)](https://circleci.com/gh/ionic-team/ionic-native) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/) ![](https://img.shields.io/npm/v/@youme-ionic/core.svg)
 
 # Ionic Native
 
@@ -11,7 +11,7 @@ Ionic Native wraps plugin callbacks in a Promise or Observable, providing a comm
 Run following command to install Ionic Native in your project.
 
 ```bash
-npm install youme-ionic/core --save
+npm install @youme-ionic/core --save
 ```
 
 You also need to install the Ionic Native package for each plugin you want to add. Please see the [Ionic Native documentation](https://ionicframework.com/docs/native/) for complete instructions on how to add and use the plugins.
@@ -28,7 +28,7 @@ Make sure to import the injectable class from the `/ngx` directory as shown in t
 
 ```typescript
 // app.module.ts
-import { Camera } from 'youme-ionic/camera/ngx';
+import { Camera } from '@youme-ionic/camera/ngx';
 
 ...
 
@@ -46,7 +46,7 @@ export class AppModule { }
 ```
 
 ```typescript
-import { Geolocation } from 'youme-ionic/geolocation/ngx';
+import { Geolocation } from '@youme-ionic/geolocation/ngx';
 import { Platform } from 'ionic-angular';
 
 @Component({ ... })
@@ -79,7 +79,7 @@ export class MyComponent {
 #### ES2015+/TypeScript
 These modules can work in any ES2015+/TypeScript app (including Angular/Ionic apps). To use any plugin, import the class from the appropriate package, and use it's static methods.
 ```js
-import { Camera } from 'youme-ionic/camera';
+import { Camera } from '@youme-ionic/camera';
 
 document.addEventListener('deviceready', () => {
   Camera.getPicture()
@@ -140,7 +140,7 @@ To do this, you need to provide a mock implementation of the plugins you wish to
 First import the `Camera` class in your `src/app/app.module.ts` file:
 
 ```typescript
-import { Camera } from 'youme-ionic/camera/ngx';
+import { Camera } from '@youme-ionic/camera/ngx';
 ```
 
 Then create a new class that extends the `Camera` class with a mock implementation:
@@ -170,7 +170,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
-import { Camera } from 'youme-ionic/camera/ngx';
+import { Camera } from '@youme-ionic/camera/ngx';
 
 import { HomePage } from '../pages/home/home';
 import { MyApp } from './app.component';
