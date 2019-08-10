@@ -1,6 +1,37 @@
 import { Injectable } from '@angular/core';
 import { Plugin, Cordova, IonicNativePlugin } from 'youme-ionic/core';
-import { Observable } from 'rxjs';
+
+/**
+ * chat type
+ *
+ * @export
+ * @enum {number}
+ */
+export enum ChatType = {
+  Unknow = 0,
+  PrivateChat = 1,
+  RoomChat = 2,
+};
+
+/**
+ * server's location
+ *
+ * @export
+ * @enum {number}
+ */
+export enum ServerZone = {
+  China = 0;       // China - default
+  Singapore = 1;   // Singapore
+  America = 2;     // America
+  HongKong = 3;    // HongKong
+  Korea = 4;       // Korea
+  Australia = 5;   // Australia
+  Deutschland = 6; // Deutschland
+  Brazil = 7;      // Brazil
+  India = 8;       // India
+  Japan = 9;       // Japan
+  Ireland = 10;    // Ireland
+};
 
 /**
  * @name Youme IM
@@ -25,12 +56,12 @@ import { Observable } from 'rxjs';
  */
 @Plugin({
   pluginName: 'YoumeIM',
-  plugin: 'cordova-plugin-youme-im', // npm package name, example: cordova-plugin-camera
-  pluginRef: 'cordova.plugins.YoumeIMCordovaPlugin', // the variable reference to call the plugin, example: navigator.geolocation
-  repo: 'https://github.com/youmesdk/YoumeIMCordovaPlugin', // the github repository URL for the plugin
-  install: 'cordova plugin add cordova-plugin-youme-im', // OPTIONAL install command, in case the plugin requires variables
-  installVariables: [], // OPTIONAL the plugin requires variables
-  platforms: ['Android'] // Array of platforms supported, example: ['Android', 'iOS']
+  plugin: 'cordova-plugin-youme-im',
+  pluginRef: 'cordova.plugins.YoumeIMCordovaPlugin',
+  repo: 'https://github.com/youmesdk/YoumeIMCordovaPlugin',
+  install: 'cordova plugin add cordova-plugin-youme-im',
+  installVariables: [],
+  platforms: ['Android']
 })
 @Injectable()
 export class YoumeIM extends IonicNativePlugin {
@@ -38,31 +69,36 @@ export class YoumeIM extends IonicNativePlugin {
   /**
    * init sdk
    * 
-   * @param {string} appKey 
-   * @param {number} secretKey - Another param to configure something
-   * @return {Promise<any>} - Returns a promise that resolves when something happens
+   * @param {string} appKey - iapp dentifier, obtained after registering at www.youme.im
+   * @param {string} secretKey - app security key, obtained after registering at www.youme.im
+   * @param {ServerZone} regionId - server zone
+   * @return {Promise<any>}
    * @memberof YoumeIM
    */
   @Cordova()
-  init(appKey: string, secretKey: string, regionId: string): Promise<any> { return; }
+  init(appKey: string, secretKey: string, regionId: ServerZone): Promise<any> { return; }
 
   /**
    * login
    * 
-   * @param {string} userid 
-   * @param {string} password
-   * @param {string} token
-   * @return {Promise<any>} - Returns a promise
+   * @param {string} userid - User ID, assigned by the caller, cannot be an empty string. 
+   *                          It can only be composed of letters or numbers or underscores. 
+   *                          The length is limited to 255 bytes.
+   * @param {string} password - Login password, can not be an empty string, 
+   *                            can be set to a fixed string without special requirements
+   * @param {string} token - User token, used when using server token authentication mode. 
+   *                         If not used, token is passed in: "", the token value is obtained by restAPI.
+   * @return {Promise<any>}
    * @memberof YoumeIM
    */
   @Cordova()
   login(userid: string, password: string, token: string): Promise<any> { return; }
 
   /**
-   * logout sdk
+   * logout
    *
    * @memberof YoumeIM
-   * @return {Promise<any>} - Returns Promise
+   * @return {Promise<any>}
    * @memberof YoumeIM
    */
   @Cordova()
@@ -71,15 +107,15 @@ export class YoumeIM extends IonicNativePlugin {
   /**
    * send text message
    *
-   * @param {string} strRecvId
-   * @param {number} iChatType
-   * @param {string} strMsgContent
-   * @param {string} strAttachParam
-   * @return {Promise<any>} - Returns Promise
+   * @param {string} strRecvId - reciver id
+   * @param {number} iChatType - chat type
+   * @param {string} strMsgContent - message content
+   * @param {string} strAttachParam - attach message
+   * @return {Promise<any>}
    * @memberof YoumeIM
    */
   @Cordova()
-  sendTextMessage(strRecvId: string, iChatType: number, strMsgContent: string, strAttachParam: string): Promise<any> { return; }
+  sendTextMessage(strRecvId: string, iChatType: ChatType, strMsgContent: string, strAttachParam: string): Promise<any> { return; }
   
   /**
    * regist callback function for reconnect event
@@ -105,18 +141,18 @@ export class YoumeIM extends IonicNativePlugin {
   /**
    * start record audio message
    *
-   * @param {string} recvID
-   * @param {number} chatType
-   * @param {string} extraText
-   * @param {boolean} needRecognize
+   * @param {string} recvID - reciver's id private; chat: userid，room chat: roomid
+   * @param {ChatType} chatType - chatType
+   * @param {string} extraText - extra text message for voice message
+   * @param {boolean} needRecognize - Whether to enable only recognize voice text, not send voice messages
    * @returns {Promise<any>}
    * @memberof YoumeIM
    */
   @Cordova()
-  startRecordAudioMessage(recvID: string, chatType: number, extraText: string, needRecognize: boolean): Promise<any> { return; }
+  startRecordAudioMessage(recvID: string, chatType: ChatType, extraText: string, needRecognize: boolean): Promise<any> { return; }
 
   /**
-   * cancel audio message
+   * cancel record audio message, not send
    *
    * @returns {Promise<any>}
    * @memberof YoumeIM
@@ -136,7 +172,7 @@ export class YoumeIM extends IonicNativePlugin {
   /**
    * join single chart room by room id
    *
-   * @param {string} roomID
+   * @param {string} roomID - room id
    * @returns {Promise<any>}
    * @memberof YoumeIM
    */
@@ -146,7 +182,7 @@ export class YoumeIM extends IonicNativePlugin {
   /**
    * leave chat room by id
    *
-   * @param {string} roomID
+   * @param {string} roomID - room id
    * @returns {Promise<any>}
    * @memberof YoumeIM
    */
@@ -156,7 +192,7 @@ export class YoumeIM extends IonicNativePlugin {
   /**
    * start play audio
    *
-   * @param {string} audioPath
+   * @param {string} audioPath - audio file path
    * @returns {Promise<any>}
    * @memberof YoumeIM
    */
@@ -166,7 +202,7 @@ export class YoumeIM extends IonicNativePlugin {
   /**
    * stop play audio
    * 
-   * @return {Promise<any>} Returns Promise
+   * @return {Promise<any>}
    * @memberof YoumeIM
    */
   @Cordova()
