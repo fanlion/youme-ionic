@@ -7,7 +7,7 @@ import { Plugin, Cordova, IonicNativePlugin } from 'youme-ionic/core';
  * @export
  * @enum {number}
  */
-export enum ChatType = {
+export enum ChatType {
   Unknow = 0,
   PrivateChat = 1,
   RoomChat = 2,
@@ -19,7 +19,7 @@ export enum ChatType = {
  * @export
  * @enum {number}
  */
-export enum ServerZone = {
+export enum ServerZone {
   China = 0;       // China - default
   Singapore = 1;   // Singapore
   America = 2;     // America
