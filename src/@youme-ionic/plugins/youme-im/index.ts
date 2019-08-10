@@ -34,7 +34,7 @@ export enum ServerZone {
 };
 
 /**
- * @name Youme IM
+ * @name YoumeIM
  * @description
  * This plugin facilitates the usage of Youme IM in an Ionic apps with the integrated YoumeIMSDK
  *
@@ -48,7 +48,7 @@ export enum ServerZone {
  * ...
  *
  *
- * this.youmeIM.functionName('Hello', 123)
+ * this.youmeIM.init('xxxxx', 'xxxxx', 0)
  *   .then((res: any) => console.log(res))
  *   .catch((error: any) => console.error(error));
  *
@@ -68,19 +68,16 @@ export class YoumeIM extends IonicNativePlugin {
 
   /**
    * init sdk
-   * 
    * @param {string} appKey - iapp dentifier, obtained after registering at www.youme.im
    * @param {string} secretKey - app security key, obtained after registering at www.youme.im
    * @param {ServerZone} regionId - server zone
    * @return {Promise<any>}
-   * @memberof YoumeIM
    */
   @Cordova()
   init(appKey: string, secretKey: string, regionId: ServerZone): Promise<any> { return; }
 
   /**
    * login
-   * 
    * @param {string} userid - User ID, assigned by the caller, cannot be an empty string. 
    *                          It can only be composed of letters or numbers or underscores. 
    *                          The length is limited to 255 bytes.
@@ -89,37 +86,31 @@ export class YoumeIM extends IonicNativePlugin {
    * @param {string} token - User token, used when using server token authentication mode. 
    *                         If not used, token is passed in: "", the token value is obtained by restAPI.
    * @return {Promise<any>}
-   * @memberof YoumeIM
    */
   @Cordova()
   login(userid: string, password: string, token: string): Promise<any> { return; }
 
   /**
    * logout
-   *
    * @memberof YoumeIM
    * @return {Promise<any>}
-   * @memberof YoumeIM
    */
   @Cordova()
   logout(): Promise<any> { return; }
 
   /**
    * send text message
-   *
    * @param {string} strRecvId - reciver id
    * @param {number} iChatType - chat type
    * @param {string} strMsgContent - message content
    * @param {string} strAttachParam - attach message
    * @return {Promise<any>}
-   * @memberof YoumeIM
    */
   @Cordova()
   sendTextMessage(strRecvId: string, iChatType: ChatType, strMsgContent: string, strAttachParam: string): Promise<any> { return; }
   
   /**
    * regist callback function for reconnect event
-   * 
    * @param {Function} success - callback function for success
    * @param {Function} error - callback function for error
    * @memberof YoumeIM
@@ -129,10 +120,8 @@ export class YoumeIM extends IonicNativePlugin {
 
   /**
    * regist callback function for kick out event
-   * 
    * @param {Funtion} success - callback function for success
    * @param {Function} error - callback function for error
-   * @memberof YoumeIM
    * @return
    */
   @Cordova({ sync: true })
@@ -140,70 +129,56 @@ export class YoumeIM extends IonicNativePlugin {
 
   /**
    * start record audio message
-   *
    * @param {string} recvID - reciver's id private; chat: userid，room chat: roomid
    * @param {ChatType} chatType - chatType
    * @param {string} extraText - extra text message for voice message
    * @param {boolean} needRecognize - Whether to enable only recognize voice text, not send voice messages
    * @returns {Promise<any>}
-   * @memberof YoumeIM
    */
   @Cordova()
   startRecordAudioMessage(recvID: string, chatType: ChatType, extraText: string, needRecognize: boolean): Promise<any> { return; }
 
   /**
    * cancel record audio message, not send
-   *
    * @returns {Promise<any>}
-   * @memberof YoumeIM
    */
   @Cordova()
   cancelAudioMessage(): Promise<any> { return; }
 
   /**
    * stop record audio message, and send it
-   *
    * @returns {Promise<any>}
-   * @memberof YoumeIM
    */
   @Cordova()
   stopAndSendAudioMessage(): Promise<any> { return; }
 
   /**
    * join single chart room by room id
-   *
    * @param {string} roomID - room id
    * @returns {Promise<any>}
-   * @memberof YoumeIM
    */
   @Cordova()
   joinChatRoom(roomID: string): Promise<any> { return; }
 
   /**
    * leave chat room by id
-   *
    * @param {string} roomID - room id
    * @returns {Promise<any>}
-   * @memberof YoumeIM
    */
   @Cordova()
   leaveChatRoom(roomID: string): Promise<any> { return; }
 
   /**
    * start play audio
-   *
    * @param {string} audioPath - audio file path
    * @returns {Promise<any>}
-   * @memberof YoumeIM
    */
   @Cordova()
   startPlayAudio(audioPath: string): Promise<any> { return; }
 
   /**
    * stop play audio
-   * 
    * @return {Promise<any>}
-   * @memberof YoumeIM
    */
   @Cordova()
   stopPlayAudio(): Promise<any> { return; }
