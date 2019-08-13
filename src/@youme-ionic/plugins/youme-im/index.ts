@@ -140,6 +140,16 @@ export class YoumeIM extends IonicNativePlugin {
   registerKickOffCallback(success: Function, error: Function): void { return; }
 
   /**
+   * regist callback function for message event
+   *
+   * @param {Function} success - callback function for success
+   * @param {Function} error - callback function for error
+   * @returns {void}
+   */
+  @Cordova({ sync: true })
+  registerMsgEventCallback(success: Function, error: Function): void { return; }
+
+  /**
    * start record audio message
    * @param {string} recvID - reciver's id; private chat: userid，room chat: roomid
    * @param {ChatType} chatType - chatType
