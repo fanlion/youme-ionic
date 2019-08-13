@@ -1,4 +1,4 @@
-<a style="float:right;font-size:12px;" href="http://github.com/ionic-team/ionic-native/edit/master/src/@youme-ionic/plugins/youme-im/index.ts#L33">
+<a style="float:right;font-size:12px;" href="http://github.com/ionic-team/ionic-native/edit/master/src/@youme-ionic/plugins/youme-im/index.ts#L46">
   Improve this doc
 </a>
 
