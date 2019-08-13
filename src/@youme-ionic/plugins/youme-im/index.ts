@@ -14,6 +14,19 @@ export enum ChatType {
 };
 
 /**
+ * file type
+ *
+ * @export
+ * @enum {number}
+ */
+export enum FileType {
+  Other = 0,
+  Audio = 1,
+  Image = 2,
+  Video = 3,
+}
+
+/**
  * server's location
  *
  * @export
@@ -128,7 +141,7 @@ export class YoumeIM extends IonicNativePlugin {
 
   /**
    * start record audio message
-   * @param {string} recvID - reciver's id private; chat: userid，room chat: roomid
+   * @param {string} recvID - reciver's id; private chat: userid，room chat: roomid
    * @param {ChatType} chatType - chatType
    * @param {string} extraText - extra text message for voice message
    * @param {boolean} needRecognize - Whether to enable only recognize voice text, not send voice messages
@@ -181,4 +194,27 @@ export class YoumeIM extends IonicNativePlugin {
    */
   @Cordova()
   stopPlayAudio(): Promise<any> { return; }
+
+  /**
+   * send file
+   *
+   * @param {string} strRecvId - reciver's id, private chat: userid，room chat: roomid
+   * @param {ChatType} iChatType - ChatType
+   * @param {string} filePath - file path
+   * @param {string} strAttachParam - attach string message
+   * @param {FileType} fileType - FileType
+   * @returns {Promise<any>}
+   */
+  @Cordova()
+  sendFileMessage(strRecvId: string, iChatType: ChatType: , filePath: string, strAttachParam: string, fileType: FileType): Promise<any> { return; }
+
+  /**
+   * switch transfer file type
+   *
+   * @param {(string | number)} transType - 0 message will delivery directly;
+   *                                        1 means just cc to app server, not delivery directly
+   * @returns {Promise<any>}
+   */
+  @Cordova()
+  switchTransType(transType: string | number): Promise<any> { return; }
 }
