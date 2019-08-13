@@ -1,6 +1,6 @@
 {
   "name": "youme-ionic",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Youme Native plugin wrappers for Cordova and Ionic with TypeScript, ES6+, Promise and Observable support",
   "homepage": "https://github.com/fanlion/youme-ionic.git",
   "author": "Youme Team (https://youme.im)",
