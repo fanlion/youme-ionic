@@ -33,17 +33,17 @@ export enum FileType {
  * @enum {number}
  */
 export enum ServerZone {
-  China = 0;       // China - default
-  Singapore = 1;   // Singapore
-  America = 2;     // America
-  HongKong = 3;    // HongKong
-  Korea = 4;       // Korea
-  Australia = 5;   // Australia
-  Deutschland = 6; // Deutschland
-  Brazil = 7;      // Brazil
-  India = 8;       // India
-  Japan = 9;       // Japan
-  Ireland = 10;    // Ireland
+  China = 0,       // China - default
+  Singapore = 1,   // Singapore
+  America = 2,     // America
+  HongKong = 3,    // HongKong
+  Korea = 4,       // Korea
+  Australia = 5,   // Australia
+  Deutschland = 6, // Deutschland
+  Brazil = 7,      // Brazil
+  India = 8,       // India
+  Japan = 9,       // Japan
+  Ireland = 10    // Ireland
 };
 
 /**
@@ -216,7 +216,7 @@ export class YoumeIM extends IonicNativePlugin {
    * @returns {Promise<any>}
    */
   @Cordova()
-  sendFileMessage(strRecvId: string, iChatType: ChatType: , filePath: string, strAttachParam: string, fileType: FileType): Promise<any> { return; }
+  sendFileMessage(strRecvId: string, iChatType: ChatType , filePath: string, strAttachParam: string, fileType: FileType): Promise<any> { return; }
 
   /**
    * switch transfer file type
@@ -227,4 +227,15 @@ export class YoumeIM extends IonicNativePlugin {
    */
   @Cordova()
   switchTransType(transType: string | number): Promise<any> { return; }
+
+  /**
+   * download file
+   *
+   * @param {string} strDownloadURL - http or https url
+   * @param {string} strSavePath - file path, full path
+   * @param {FileType} fileType - FileType
+   * @returns {Promise<any>}
+   */
+  @Cordova()
+  downloadFileByUrl(strDownloadURL: string, strSavePath: string , fileType: FileType): Promise<any> { return; }
 }

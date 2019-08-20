@@ -9,7 +9,9 @@ Ionic Native wraps plugin callbacks in a Promise or Observable, providing a comm
 Run following command to install Ionic Native in your project.
 
 ```bash
+cordova plugin add cordova-plugin-youme-im
 npm install @youme-ionic/core --save
+npm install @youme-ionic/youme-im --save
 ```
 
 You also need to install the Ionic Native package for each plugin you want to add. Please see the [Ionic Native documentation](https://ionicframework.com/docs/native/) for complete instructions on how to add and use the plugins.
